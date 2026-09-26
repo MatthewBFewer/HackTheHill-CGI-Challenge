@@ -1,0 +1,445 @@
+/* Complaint Manager
+   Conservative CSS for broad browser compatibility.
+   Layout avoids Flexbox and Grid so the 3DS can use the same core UI.
+*/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #eef3f7;
+    color: #263746;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+body {
+    min-width: 280px;
+}
+
+a {
+    color: #1769aa;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+    color: #20384d;
+}
+
+h1 {
+    margin-bottom: 2px;
+    font-size: 22px;
+}
+
+h1 a {
+    color: #ffffff;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+p {
+    margin-top: 0;
+}
+
+.page {
+    width: 94%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.header {
+    background: #2c6f9e;
+    color: #ffffff;
+    border-bottom: 3px solid #1f587f;
+}
+
+.header-inner {
+    padding: 10px 12px;
+}
+
+.header-subtitle {
+    color: #dcecf7;
+    font-size: 12px;
+}
+
+.navigation {
+    background: #ffffff;
+    border: 1px solid #c8d5df;
+    border-top: 0;
+    padding: 7px 10px;
+}
+
+.navigation a {
+    display: inline-block;
+    margin-right: 14px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.content {
+    padding: 14px 0 20px 0;
+}
+
+.footer {
+    clear: both;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-top: 1px solid #c8d5df;
+    color: #6d7b86;
+    font-size: 11px;
+}
+
+.page-heading {
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #c8d5df;
+}
+
+.page-heading:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.page-heading > div {
+    float: left;
+    max-width: 70%;
+}
+
+.page-heading > .button {
+    float: right;
+    margin-top: 2px;
+}
+
+.muted {
+    color: #687985;
+}
+
+.button {
+    display: inline-block;
+    padding: 7px 11px;
+    border: 1px solid #9fb2c1;
+    background: #f5f8fa;
+    color: #24465d;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 1.2;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button:hover {
+    text-decoration: none;
+    background: #e6eef4;
+}
+
+.button.primary {
+    background: #2c6f9e;
+    border-color: #245b82;
+    color: #ffffff;
+}
+
+.button.primary:hover {
+    background: #245f8b;
+}
+
+.button.secondary {
+    background: #ffffff;
+}
+
+.button.danger {
+    background: #b94a48;
+    border-color: #9f3d3b;
+    color: #ffffff;
+}
+
+.button.small {
+    padding: 5px 8px;
+    font-size: 12px;
+}
+
+.filter-box,
+.form-panel,
+.panel,
+.empty-state {
+    background: #ffffff;
+    border: 1px solid #c8d5df;
+    padding: 12px;
+}
+
+.filter-box {
+    margin-bottom: 12px;
+}
+
+.filter-field {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-right: 12px;
+    margin-bottom: 5px;
+}
+
+.filter-field label,
+.form-row label {
+    display: block;
+    margin-bottom: 3px;
+    color: #415766;
+    font-weight: bold;
+}
+
+select,
+input[type="text"],
+textarea {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #aebdca;
+    background: #ffffff;
+    color: #263746;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    padding: 6px;
+}
+
+.filter-field select {
+    width: auto;
+    min-width: 120px;
+}
+
+.filter-actions {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.complaint-card {
+    background: #ffffff;
+    border: 1px solid #c8d5df;
+    margin-bottom: 10px;
+    padding: 11px;
+}
+
+.complaint-card-header {
+    min-height: 22px;
+}
+
+.complaint-card-header:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.complaint-id {
+    float: left;
+    color: #617381;
+    font-weight: bold;
+}
+
+.status {
+    float: right;
+    padding: 2px 6px;
+    border: 1px solid #b7c5cf;
+    background: #edf2f5;
+    color: #40515d;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.status-new {
+    background: #e9f3fb;
+    color: #245f88;
+}
+
+.status-in-progress {
+    background: #f3f0df;
+    color: #75631f;
+}
+
+.status-resolved {
+    background: #e9f4ed;
+    color: #356347;
+}
+
+.status-closed {
+    background: #eceff1;
+    color: #56636b;
+}
+
+.complaint-card h3 {
+    clear: both;
+    margin: 8px 0 7px 0;
+    font-size: 15px;
+}
+
+.complaint-meta {
+    color: #536774;
+    margin: 2px 0;
+    font-size: 12px;
+}
+
+.card-actions {
+    margin-top: 9px;
+}
+
+.card-actions .button {
+    margin-right: 5px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 25px 12px;
+}
+
+.detail-grid {
+    margin-bottom: 12px;
+}
+
+.detail-grid:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.detail-grid .panel {
+    box-sizing: border-box;
+    float: left;
+    width: 49%;
+    margin-right: 2%;
+}
+
+.detail-grid .panel:last-child {
+    margin-right: 0;
+}
+
+.detail-row {
+    border-top: 1px solid #e2e8ec;
+    padding: 7px 0;
+}
+
+.detail-label {
+    color: #60717d;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.detail-value {
+    margin-top: 2px;
+}
+
+.description {
+    white-space: pre-wrap;
+}
+
+.section-heading {
+    margin-top: 16px;
+}
+
+.actions-panel {
+    margin-bottom: 10px;
+}
+
+.inline-form {
+    display: inline;
+}
+
+.timestamps {
+    color: #71808a;
+    font-size: 11px;
+}
+
+.form-panel fieldset {
+    border: 1px solid #d2dce3;
+    margin: 0 0 12px 0;
+    padding: 10px;
+}
+
+.form-panel legend {
+    color: #2c6f9e;
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+.form-row {
+    margin-bottom: 10px;
+}
+
+.form-row:last-child {
+    margin-bottom: 0;
+}
+
+.form-actions {
+    margin-top: 5px;
+}
+
+.form-actions .button {
+    margin-right: 6px;
+}
+
+.required {
+    color: #a33b38;
+}
+
+.alert {
+    padding: 9px 10px;
+    margin-bottom: 12px;
+    border: 1px solid #d3b7b7;
+}
+
+.alert.error {
+    background: #f8eeee;
+    color: #8a3331;
+}
+
+/* The core layout above remains usable without media queries.
+   This small-screen rule is progressive enhancement for newer browsers. */
+@media screen and (max-width: 600px) {
+    .page {
+        width: 96%;
+    }
+
+    .content {
+        padding-top: 9px;
+    }
+
+    .page-heading > div {
+        float: none;
+        max-width: none;
+        margin-bottom: 8px;
+    }
+
+    .page-heading > .button {
+        float: none;
+    }
+
+    .filter-field,
+    .filter-actions {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+
+    .filter-field select {
+        width: 100%;
+    }
+
+    .detail-grid .panel {
+        float: none;
+        width: 100%;
+        margin: 0 0 10px 0;
+    }
+
+    .button {
+        padding: 7px 9px;
+    }
+}
