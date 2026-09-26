@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %}Submit a Complaint - Complaint Manager{% endblock %}
+{% block title %}Submit an Inquiry - Inquiry Manager{% endblock %}
 
 {% block content %}
 <div class="page-heading">
     <div>
-        <h2>Submit a Complaint</h2>
+        <h2>Submit an Inquiry</h2>
         <p class="muted">Describe your issue below. Our system will review it automatically.</p>
     </div>
     <a class="button secondary" href="{{ url_for('home') }}">Cancel</a>
@@ -28,7 +28,7 @@
     </div>
 </div>
 <div class="form-actions">
-    <a class="button primary" href="{{ url_for('new_complaint') }}">Submit another complaint</a>
+    <a class="button primary" href="{{ url_for('new_complaint') }}">Submit another inquiry</a>
 </div>
 {% else %}
 <form class="form-panel" method="post">
@@ -47,7 +47,7 @@
     </fieldset>
 
     <fieldset>
-        <legend>Your Complaint</legend>
+        <legend>Your Inquiry</legend>
 
         <div class="form-row">
             <label for="subject">Subject <span class="required">*</span></label>
@@ -61,7 +61,7 @@
     </fieldset>
 
     <div class="form-actions">
-        <input class="button primary" type="submit" value="Submit Complaint">
+        <input class="button primary" type="submit" value="Submit Inquiry">
     </div>
 </form>
 {% endif %}

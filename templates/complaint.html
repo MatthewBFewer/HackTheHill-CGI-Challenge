@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %}Complaint #{{ complaint["id"] }} - Complaint Manager{% endblock %}
+{% block title %}Inquiry #{{ complaint["id"] }} - Inquiry Manager{% endblock %}
 
 {% block content %}
 <div class="page-heading">
     <div>
-        <h2>Complaint #{{ complaint["id"] }}</h2>
+        <h2>Inquiry #{{ complaint["id"] }}</h2>
         <p class="muted">{{ complaint["subject"] }}</p>
     </div>
     <a class="button secondary" href="{{ url_for('index') }}">Back</a>
@@ -25,7 +25,7 @@
 
 <div class="detail-grid">
     <div class="panel">
-        <h3>Complaint Details</h3>
+        <h3>Inquiry Details</h3>
 
         <div class="detail-row">
             <div class="detail-label">Subject</div>
@@ -81,7 +81,7 @@
 </div>
 
 <div class="panel actions-panel">
-    <a class="button primary" href="{{ url_for('edit_complaint', complaint_id=complaint['id']) }}">Edit Complaint</a>
+    <a class="button primary" href="{{ url_for('edit_complaint', complaint_id=complaint['id']) }}">Edit Inquiry</a>
 
     <form class="inline-form delete-form" method="post"
           action="{{ url_for('delete_complaint', complaint_id=complaint['id']) }}">

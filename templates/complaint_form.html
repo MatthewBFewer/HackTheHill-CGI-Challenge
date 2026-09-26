@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}{{ form_title }} - Complaint Manager{% endblock %}
+{% block title %}{{ form_title }} - Inquiry Manager{% endblock %}
 
 {% block content %}
 <div class="page-heading">
     <div>
         <h2>{{ form_title }}</h2>
-        <p class="muted">Enter the complaint information below.</p>
+        <p class="muted">Enter the inquiry information below.</p>
     </div>
     <a class="button secondary" href="{{ url_for('index') }}">Cancel</a>
 </div>
@@ -33,7 +33,7 @@
     </fieldset>
 
     <fieldset>
-        <legend>Complaint</legend>
+        <legend>Inquiry</legend>
 
         <div class="form-row">
             <label for="subject">Subject <span class="required">*</span></label>
@@ -105,7 +105,7 @@
     </fieldset>
 
     <div class="form-actions">
-        <input class="button primary" type="submit" value="Save Complaint">
+        <input class="button primary" type="submit" value="Save Inquiry">
         <a class="button secondary" href="{{ url_for('index') }}">Cancel</a>
     </div>
 </form>

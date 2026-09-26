@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>{% block title %}Complaint Manager{% endblock %}</title>
+    <title>{% block title %}Inquiry Manager{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
@@ -11,14 +11,14 @@
 <div class="page">
     <div class="header">
         <div class="header-inner">
-            <h1><a href="{{ url_for('index') }}">Complaint Manager</a></h1>
-            <div class="header-subtitle">Customer complaint tracking</div>
+            <h1><a href="{{ url_for('index') }}">Inquiry Manager</a></h1>
+            <div class="header-subtitle">Customer inquiry tracking</div>
         </div>
     </div>
 
     <div class="navigation">
-        <a href="{{ url_for('index') }}">Complaints</a>
-        <a href="{{ url_for('new_complaint') }}">New Complaint</a>
+        <a href="{{ url_for('login') }}">Inquiries</a>
+        <a href="{{ url_for('new_complaint') }}">New Inquiry</a>
     </div>
 
     <div class="content">
@@ -26,7 +26,7 @@
     </div>
 
     <div class="footer">
-        Complaint Manager
+        Inquiry Manager
     </div>
 </div>
 

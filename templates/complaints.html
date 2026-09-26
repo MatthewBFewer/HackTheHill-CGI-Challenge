@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %}Complaints - Complaint Manager{% endblock %}
+{% block title %}Inquiries - Inquiry Manager{% endblock %}
 
 {% block content %}
 <div class="page-heading">
     <div>
-        <h2>Complaints</h2>
+        <h2>Inquiries</h2>
         <p class="muted">Ranked by AI-assessed severity, highest first.</p>
     </div>
-    <a class="button primary" href="{{ url_for('new_complaint') }}">New Complaint</a>
+    <a class="button primary" href="{{ url_for('new_complaint') }}">New Inquiry</a>
 </div>
 
 <form class="filter-box" method="get" action="{{ url_for('index') }}">
@@ -77,8 +77,8 @@
 </div>
 {% else %}
 <div class="empty-state">
-    <h3>No complaints found</h3>
-    <p>Try changing the filters or create a new complaint.</p>
+    <h3>No inquiries found</h3>
+    <p>Try changing the filters or create a new inquiry.</p>
 </div>
 {% endif %}
 {% endblock %}

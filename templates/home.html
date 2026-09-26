@@ -1,13 +1,20 @@
 {% extends "base.html" %}
 
-{% block title %}Complaint Triage System{% endblock %}
+{% block title %}Inquiry Triage System{% endblock %}
 
 {% block content %}
+
+{% if submitted %}
+<div class="success-message">
+    <strong>Thank you!</strong><br>
+    Your inquiry has been received successfully and will be reviewed by our team.
+</div>
+{% endif %}
 
 <div class="page-heading">
 
     <div>
-        <h2>Complaint Triage System</h2>
+        <h2>Inquiry Triage System</h2>
         <p class="muted">Please choose an option below.</p>
     </div>
 
@@ -21,15 +28,15 @@
             <span class="complaint-id">Customer</span>
         </div>
 
-        <h3>Submit a Complaint</h3>
+        <h3>Submit an Inquiry</h3>
 
         <div class="complaint-meta">
-            Submit a new customer complaint for review and triage.
+            Submit a new customer inquiry for review and triage.
         </div>
 
         <div class="card-actions">
             <a class="button primary" href="{{ url_for('new_complaint') }}">
-                Submit a Complaint &raquo;
+                Submit an Inquiry &raquo;
             </a>
         </div>
 
@@ -44,7 +51,7 @@
         <h3>Admin Login</h3>
 
         <div class="complaint-meta">
-            Log in to manage and review submitted complaints.
+            Log in to manage and review submitted inquiries.
         </div>
 
         <div class="card-actions">
