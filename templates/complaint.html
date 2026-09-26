@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Complaint #{{ complaint["id"] }} - Complaint Manager{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+    <div>
+        <h2>Complaint #{{ complaint["id"] }}</h2>
+        <p class="muted">{{ complaint["subject"] }}</p>
+    </div>
+    <a class="button secondary" href="{{ url_for('index') }}">Back</a>
+</div>
+
+<div class="detail-grid">
+    <div class="panel">
+        <h3>Complaint Details</h3>
+
+        <div class="detail-row">
+            <div class="detail-label">Subject</div>
+            <div class="detail-value">{{ complaint["subject"] }}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">Description</div>
+            <div class="detail-value description">{{ complaint["description"] }}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">Status</div>
+            <div class="detail-value">{{ complaint["status"] }}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">Category</div>
+            <div class="detail-value">{{ complaint["category"] }}</div>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h3>Customer</h3>
+
+        <div class="detail-row">
+            <div class="detail-label">Name</div>
+            <div class="detail-value">{{ complaint["customer_name"] }}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">Email</div>
+            <div class="detail-value">{{ complaint["customer_email"] or "Not provided" }}</div>
+        </div>
+
+        <h3 class="section-heading">Routing</h3>
+
+        <div class="detail-row">
+            <div class="detail-label">Urgency</div>
+            <div class="detail-value">{{ complaint["urgency"] }}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">Regulatory Risk</div>
+            <div class="detail-value">{{ complaint["regulatory_risk"] }}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">Queue</div>
+            <div class="detail-value">{{ complaint["assigned_queue"] }}</div>
+        </div>
+    </div>
+</div>
+
+<div class="panel actions-panel">
+    <a class="button primary" href="{{ url_for('edit_complaint', complaint_id=complaint['id']) }}">Edit Complaint</a>
+
+    <form class="inline-form delete-form" method="post"
+          action="{{ url_for('delete_complaint', complaint_id=complaint['id']) }}">
+        <input class="button danger" type="submit" value="Delete"
+               onclick="return confirmDelete();">
+    </form>
+</div>
+
+<div class="timestamps">
+    Created: {{ complaint["created_at"]|datetime }}
+    {% if complaint["updated_at"] %}
+    &nbsp;|&nbsp; Updated: {{ complaint["updated_at"]|datetime }}
+    {% endif %}
+</div>
+{% endblock %}

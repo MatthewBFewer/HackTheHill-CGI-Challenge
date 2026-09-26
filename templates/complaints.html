@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Complaints - Complaint Manager{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+    <div>
+        <h2>Complaints</h2>
+        <p class="muted">Customer complaints currently in the system.</p>
+    </div>
+    <a class="button primary" href="{{ url_for('new_complaint') }}">New Complaint</a>
+</div>
+
+<form class="filter-box" method="get" action="{{ url_for('index') }}">
+    <div class="filter-field">
+        <label for="status">Status</label>
+        <select id="status" name="status">
+            <option value="">All</option>
+            <option value="New" {% if selected_status == "New" %}selected="selected"{% endif %}>New</option>
+            <option value="In Progress" {% if selected_status == "In Progress" %}selected="selected"{% endif %}>In Progress</option>
+            <option value="Resolved" {% if selected_status == "Resolved" %}selected="selected"{% endif %}>Resolved</option>
+            <option value="Closed" {% if selected_status == "Closed" %}selected="selected"{% endif %}>Closed</option>
+        </select>
+    </div>
+
+    <div class="filter-field">
+        <label for="category">Category</label>
+        <select id="category" name="category">
+            <option value="">All</option>
+            <option value="Billing" {% if selected_category == "Billing" %}selected="selected"{% endif %}>Billing</option>
+            <option value="Product" {% if selected_category == "Product" %}selected="selected"{% endif %}>Product</option>
+            <option value="Service" {% if selected_category == "Service" %}selected="selected"{% endif %}>Service</option>
+            <option value="Technical" {% if selected_category == "Technical" %}selected="selected"{% endif %}>Technical</option>
+            <option value="Delivery" {% if selected_category == "Delivery" %}selected="selected"{% endif %}>Delivery</option>
+            <option value="Other" {% if selected_category == "Other" %}selected="selected"{% endif %}>Other</option>
+        </select>
+    </div>
+
+    <div class="filter-actions">
+        <input class="button" type="submit" value="Filter">
+        <a class="button secondary" href="{{ url_for('index') }}">Clear</a>
+    </div>
+</form>
+
+{% if complaints %}
+<div class="complaint-list">
+    {% for complaint in complaints %}
+    <div class="complaint-card">
+        <div class="complaint-card-header">
+            <span class="complaint-id">#{{ complaint["id"] }}</span>
+            <span class="status status-{{ complaint["status"]|lower|replace(" ", "-") }}">
+                {{ complaint["status"] }}
+            </span>
+        </div>
+
+        <h3><a href="{{ url_for('view_complaint', complaint_id=complaint['id']) }}">{{ complaint["subject"] }}</a></h3>
+
+        <div class="complaint-meta">
+            <strong>Customer:</strong> {{ complaint["customer_name"] }}
+        </div>
+        <div class="complaint-meta">
+            <strong>Category:</strong> {{ complaint["category"] }}
+        </div>
+        <div class="complaint-meta">
+            <strong>Created:</strong> {{ complaint["created_at"]|datetime }}
+        </div>
+
+        <div class="card-actions">
+            <a class="button small" href="{{ url_for('view_complaint', complaint_id=complaint['id']) }}">View</a>
+            <a class="button small secondary" href="{{ url_for('edit_complaint', complaint_id=complaint['id']) }}">Edit</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="empty-state">
+    <h3>No complaints found</h3>
+    <p>Try changing the filters or create a new complaint.</p>
+</div>
+{% endif %}
+{% endblock %}
