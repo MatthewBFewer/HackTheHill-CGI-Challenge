@@ -35,7 +35,7 @@ Install dependencies:
 
     pip install -r requirements.txt
 
-The included `complaints.db` already contains sample data.
+`complaints.db` populates the database with some sample data
 
 To recreate the database from scratch:
 
