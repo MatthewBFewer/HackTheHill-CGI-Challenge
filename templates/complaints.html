@@ -71,6 +71,9 @@
         <div class="card-actions">
             <a class="button small" href="{{ url_for('view_complaint', complaint_id=complaint['id']) }}">View</a>
             <a class="button small secondary" href="{{ url_for('edit_complaint', complaint_id=complaint['id']) }}">Edit</a>
+            <form method="post" action="{{ url_for('delete_complaint', complaint_id=complaint['id']) }}" style="display:inline;">
+                <input class="button small danger" type="submit" value="Delete" onclick="return confirm('Delete this inquiry permanently?');">
+            </form>
         </div>
     </div>
     {% endfor %}
