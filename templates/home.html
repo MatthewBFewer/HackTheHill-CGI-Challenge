@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Complaint Triage System{% endblock %}
+
+{% block content %}
+
+<div class="page-heading">
+
+    <div>
+        <h2>Complaint Triage System</h2>
+        <p class="muted">Please choose an option below.</p>
+    </div>
+
+</div>
+
+<div class="complaint-list">
+
+    <div class="complaint-card">
+
+        <div class="complaint-card-header">
+            <span class="complaint-id">Customer</span>
+        </div>
+
+        <h3>Submit a Complaint</h3>
+
+        <div class="complaint-meta">
+            Submit a new customer complaint for review and triage.
+        </div>
+
+        <div class="card-actions">
+            <a class="button primary" href="{{ url_for('new_complaint') }}">
+                Submit a Complaint &raquo;
+            </a>
+        </div>
+
+    </div>
+
+    <div class="complaint-card">
+
+        <div class="complaint-card-header">
+            <span class="complaint-id">Administrator</span>
+        </div>
+
+        <h3>Admin Login</h3>
+
+        <div class="complaint-meta">
+            Log in to manage and review submitted complaints.
+        </div>
+
+        <div class="card-actions">
+            <a class="button secondary" href="{{ url_for('login') }}">
+                Admin Login &raquo;
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{% block title %}Complaint Manager{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="page">
+    <div class="header">
+        <div class="header-inner">
+            <h1><a href="{{ url_for('index') }}">Complaint Manager</a></h1>
+            <div class="header-subtitle">Customer complaint tracking</div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <a href="{{ url_for('index') }}">Complaints</a>
+        <a href="{{ url_for('new_complaint') }}">New Complaint</a>
+    </div>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div class="footer">
+        Complaint Manager
+    </div>
+</div>
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Submit a Complaint - Complaint Manager{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+    <div>
+        <h2>Submit a Complaint</h2>
+        <p class="muted">Describe your issue below. Our system will review it automatically.</p>
+    </div>
+    <a class="button secondary" href="{{ url_for('home') }}">Cancel</a>
+</div>
+
+{% if error %}
+<div class="alert error">{{ error }}</div>
+{% endif %}
+
+{% if result %}
+<div class="panel">
+    <h3>Thanks - here's what we understood</h3>
+    <div class="detail-row">
+        <div class="detail-label">Summary</div>
+        <div class="detail-value description">{{ result.summary }}</div>
+    </div>
+    <div class="detail-row">
+        <div class="detail-label">Severity Score</div>
+        <div class="detail-value">{{ result.severity }} / 100</div>
+    </div>
+</div>
+<div class="form-actions">
+    <a class="button primary" href="{{ url_for('new_complaint') }}">Submit another complaint</a>
+</div>
+{% else %}
+<form class="form-panel" method="post">
+    <fieldset>
+        <legend>Customer Information</legend>
+
+        <div class="form-row">
+            <label for="customer_name">Customer Name <span class="required">*</span></label>
+            <input type="text" id="customer_name" name="customer_name" maxlength="120">
+        </div>
+
+        <div class="form-row">
+            <label for="customer_email">Email</label>
+            <input type="text" id="customer_email" name="customer_email" maxlength="200">
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Your Complaint</legend>
+
+        <div class="form-row">
+            <label for="subject">Subject <span class="required">*</span></label>
+            <input type="text" id="subject" name="subject" maxlength="200">
+        </div>
+
+        <div class="form-row">
+            <label for="description">Describe your issue <span class="required">*</span></label>
+            <textarea id="description" name="description" rows="7"></textarea>
+        </div>
+    </fieldset>
+
+    <div class="form-actions">
+        <input class="button primary" type="submit" value="Submit Complaint">
+    </div>
+</form>
+{% endif %}
+{% endblock %}
