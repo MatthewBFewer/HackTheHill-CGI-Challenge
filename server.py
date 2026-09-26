@@ -221,6 +221,32 @@ def home():
     )
 
 
+@app.route("/inquiries/track", methods=["GET", "POST"])
+def track_inquiries():
+    email = ""
+    inquiries = []
+
+    if request.method == "POST":
+        email = request.form.get("email", "").strip()
+    else:
+        email = request.args.get("email", "").strip()
+
+    if email:
+        normalized_email = email.lower()
+        db = get_db()
+        inquiries = db.execute(
+            "SELECT * FROM complaints WHERE LOWER(COALESCE(customer_email, '')) = ? ORDER BY created_at DESC",
+            (normalized_email,)
+        ).fetchall()
+        db.close()
+
+    return render_template(
+        "my_inquiries.html",
+        email=email,
+        inquiries=inquiries,
+    )
+
+
 @app.route("/admin/dashboard")
 def index():
     if not session.get("is_admin"):

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}My Inquiries{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+    <div>
+        <h2 data-i18n="myInquiries.title">My Inquiries</h2>
+        <p class="muted" data-i18n="myInquiries.subtitle">Track the status of every inquiry you have submitted during this site session.</p>
+    </div>
+    <button type="button" class="button secondary" id="languageToggle" aria-label="Switch to French">FR</button>
+</div>
+
+<div class="panel">
+    <form method="post" action="{{ url_for('track_inquiries') }}" class="filter-box" style="margin-bottom:0;">
+        <div class="filter-field" style="min-width:280px;">
+            <label for="email" data-i18n="myInquiries.emailLabel">Email address</label>
+            <input type="text" id="email" name="email" value="{{ email }}" data-i18n-placeholder="myInquiries.emailPlaceholder" placeholder="Enter the email you used to submit inquiries">
+        </div>
+        <div class="filter-actions">
+            <input class="button primary" type="submit" value="Track Inquiries" data-i18n="myInquiries.submitButton">
+        </div>
+    </form>
+</div>
+
+{% if email %}
+    {% if inquiries %}
+        <div class="complaint-list">
+            {% for inquiry in inquiries %}
+            <div class="complaint-card">
+                <div class="complaint-card-header">
+                    <span class="complaint-id">#{{ inquiry["id"] }}</span>
+                    <span class="status status-{{ inquiry["status"]|lower|replace(" ", "-") }}">
+                        {{ inquiry["status"] }}
+                    </span>
+                </div>
+
+                <h3>{{ inquiry["subject"] }}</h3>
+
+                <div class="complaint-meta">
+                    <strong data-i18n="myInquiries.categoryLabel">Category:</strong> {{ inquiry["category"] }}
+                </div>
+                <div class="complaint-meta">
+                    <strong data-i18n="myInquiries.submittedLabel">Submitted:</strong> {{ inquiry["created_at"]|datetime }}
+                </div>
+                <div class="complaint-meta">
+                    <strong data-i18n="myInquiries.statusLabel">Status:</strong> {{ inquiry["status"] }}
+                </div>
+
+                <div class="card-actions">
+                    <a class="button small" href="{{ url_for('view_complaint', complaint_id=inquiry['id']) }}" data-i18n="myInquiries.viewButton">View</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="empty-state">
+            <h3 data-i18n="myInquiries.emptyTitle">No inquiries found</h3>
+            <p data-i18n="myInquiries.emptyMessage">We couldn't find any submitted inquiries for that email address.</p>
+        </div>
+    {% endif %}
+{% endif %}
+{% endblock %}

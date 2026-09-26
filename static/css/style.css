@@ -74,7 +74,10 @@ body {
     min-width: 280px;
     margin: 0;
     padding: 0;
+<<<<<<< HEAD
     overflow-x: hidden;
+=======
+>>>>>>> b73c39c5ae3983bf4a0f02061d9482bccde158fb
 
     color: var(--text);
     font-family:
@@ -163,6 +166,7 @@ p {
    ========================================================= */
 
 .page {
+<<<<<<< HEAD
     width: 100%;
     max-width: none;
     margin: 0;
@@ -171,17 +175,22 @@ p {
 .header-inner,
 .content,
 .footer {
+=======
+>>>>>>> b73c39c5ae3983bf4a0f02061d9482bccde158fb
     width: 92%;
     max-width: 1120px;
     margin: 0 auto;
 }
 
+<<<<<<< HEAD
 .navigation {
     width: 100%;
     max-width: none;
     margin: 0;
 }
 
+=======
+>>>>>>> b73c39c5ae3983bf4a0f02061d9482bccde158fb
 .content {
     padding: 26px 0 38px;
 }
@@ -290,6 +299,7 @@ p {
     transform: translateY(-1px);
 }
 
+<<<<<<< HEAD
 @media (max-width: 640px) {
     .page {
         overflow-x: hidden;
@@ -321,6 +331,8 @@ p {
     }
 }
 
+=======
+>>>>>>> b73c39c5ae3983bf4a0f02061d9482bccde158fb
 
 /* =========================================================
    Footer
@@ -471,6 +483,7 @@ p {
     background:
         linear-gradient(
             135deg,
+<<<<<<< HEAD
             #e88b90,
             #d97077
         );
@@ -479,14 +492,29 @@ p {
 
     box-shadow:
         0 6px 16px rgba(196, 120, 124, 0.18);
+=======
+            #df686d,
+            #c84f57
+        );
+
+    border-color: rgba(167, 53, 61, 0.28);
+
+    box-shadow:
+        0 6px 16px rgba(196, 72, 82, 0.18);
+>>>>>>> b73c39c5ae3983bf4a0f02061d9482bccde158fb
 }
 
 .button.danger:hover {
     background:
         linear-gradient(
             135deg,
+<<<<<<< HEAD
             #ee969d,
             #dc7a81
+=======
+            #e36f74,
+            #ce555d
+>>>>>>> b73c39c5ae3983bf4a0f02061d9482bccde158fb
         );
 }
 
@@ -511,7 +539,10 @@ p {
     position: relative;
 
     padding: 16px;
+<<<<<<< HEAD
     margin-bottom: 22px;
+=======
+>>>>>>> b73c39c5ae3983bf4a0f02061d9482bccde158fb
 
     background: var(--surface);
 
@@ -1058,6 +1089,43 @@ textarea:focus {
 
     .empty-state {
         padding: 35px 15px;
+<<<<<<< HEAD
+=======
+    }
+}
+
+
+/* =========================================================
+   Reduced motion accessibility
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+
+/* =========================================================
+   Fallback for browsers without backdrop-filter
+   ========================================================= */
+
+@supports not (
+    backdrop-filter: blur(18px)
+) {
+    .navigation,
+    .filter-box,
+    .form-panel,
+    .panel,
+    .empty-state,
+    .complaint-card {
+        background: rgba(255, 255, 255, 0.94);
+>>>>>>> b73c39c5ae3983bf4a0f02061d9482bccde158fb
     }
 }
 

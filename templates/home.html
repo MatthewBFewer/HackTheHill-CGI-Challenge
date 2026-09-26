@@ -6,17 +6,19 @@
 
 {% if submitted %}
 <div class="success-message">
-    <strong>Thank you!</strong><br>
-    Your inquiry has been received successfully and will be reviewed by our team.
+    <strong data-i18n="success.title">Thank you!</strong><br>
+    <span data-i18n="success.message">Your inquiry has been received successfully and will be reviewed by our team.</span>
 </div>
 {% endif %}
 
 <div class="page-heading">
 
     <div>
-        <h2>Inquiry Triage System</h2>
-        <p class="muted">Please choose an option below.</p>
+        <h2 data-i18n="home.title">Inquiry Triage System</h2>
+        <p class="muted" data-i18n="home.subtitle">Please choose an option below.</p>
     </div>
+
+    <button type="button" class="button secondary" id="languageToggle" aria-label="Switch to French">FR</button>
 
 </div>
 
@@ -25,17 +27,17 @@
     <div class="complaint-card">
 
         <div class="complaint-card-header">
-            <span class="complaint-id">Customer</span>
+            <span class="complaint-id" data-i18n="customer.label">Customer</span>
         </div>
 
-        <h3>Submit an Inquiry</h3>
+        <h3 data-i18n="submit.title">Submit an Inquiry</h3>
 
-        <div class="complaint-meta">
+        <div class="complaint-meta" data-i18n="submit.description">
             Submit a new customer inquiry for review and triage.
         </div>
 
         <div class="card-actions">
-            <a class="button primary" href="{{ url_for('new_complaint') }}">
+            <a class="button primary" href="{{ url_for('new_complaint') }}" data-i18n="submit.button">
                 Submit an Inquiry &raquo;
             </a>
         </div>
@@ -45,18 +47,38 @@
     <div class="complaint-card">
 
         <div class="complaint-card-header">
-            <span class="complaint-id">Administrator</span>
+            <span class="complaint-id" data-i18n="admin.label">Administrator</span>
         </div>
 
-        <h3>Admin Login</h3>
+        <h3 data-i18n="admin.title">Admin Login</h3>
 
-        <div class="complaint-meta">
+        <div class="complaint-meta" data-i18n="admin.description">
             Log in to manage and review submitted inquiries.
         </div>
 
         <div class="card-actions">
-            <a class="button secondary" href="{{ url_for('login') }}">
+            <a class="button secondary" href="{{ url_for('login') }}" data-i18n="admin.button">
                 Admin Login &raquo;
+            </a>
+        </div>
+
+    </div>
+
+    <div class="complaint-card">
+
+        <div class="complaint-card-header">
+            <span class="complaint-id" data-i18n="track.label">Track</span>
+        </div>
+
+        <h3 data-i18n="track.title">My Inquiries</h3>
+
+        <div class="complaint-meta" data-i18n="track.description">
+            Check the status of every inquiry you have submitted.
+        </div>
+
+        <div class="card-actions">
+            <a class="button primary" href="{{ url_for('track_inquiries') }}" data-i18n="track.button">
+                View My Inquiries &raquo;
             </a>
         </div>
 

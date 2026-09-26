@@ -11,14 +11,14 @@
 <div class="page">
     <div class="header">
         <div class="header-inner">
-            <h1><a href="{{ url_for('home') }}">Inquiry Manager</a></h1>
-            <div class="header-subtitle">Customer inquiry tracking</div>
+            <h1><a href="{{ url_for('home') }}" data-i18n="brand">Inquiry Manager</a></h1>
+            <div class="header-subtitle" data-i18n="subtitle">Customer inquiry tracking</div>
         </div>
     </div>
 
     <div class="navigation">
-        <a href="{{ url_for('login') }}">Inquiries</a>
-        <a href="{{ url_for('new_complaint') }}">New Inquiry</a>
+        <a href="{{ url_for('login') }}" data-i18n="nav.inquiries">Inquiries</a>
+        <a href="{{ url_for('new_complaint') }}" data-i18n="nav.newInquiry">New Inquiry</a>
     </div>
 
     <div class="content">
