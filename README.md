@@ -1,7 +1,10 @@
 # InquiryResolverIQ
 ### Last updated: 09/27/2026
 
-A 311-style platform built for bringing citizens closer to their municipal governments
+- A 311-style platform built for bringing citizens closer to their municipal governments
+- created for HackTheHill III
+- Note that some of the files are in the context of collecting "customer complaints" as the scope of this project shifted halfway through development, and not all files were refactored
+- contains some minimal authentication but is by no means secure in this version, it is currently just a proof of concept
 
 ## Tech Stack
 
