@@ -1,27 +1,21 @@
-# Complaint Manager
+# InquiryResolverIQ
+### Last updated: 09/27/2026
 
-A small Flask + SQLite customer complaint CRUD application designed with the
-original Nintendo 3DS browser in mind.
+A 311-style platform built for bringing citizens closer to their municipal governments
 
-## Features
+## Tech Stack
 
-- Create, read, update, and delete complaints
-- SQLite database
-- Server-rendered HTML
-- Vanilla JavaScript
-- Conservative HTML/CSS/JavaScript for legacy browser compatibility
-- Responsive layout for desktop and mobile
-- 3DS-friendly 320px-wide core layout
-- Status and category filtering
-- Placeholder routing fields for future AI classification
+Backend: Python + Flask + Google gemini API + (some js functionality)
+Frontend: HTML + Jinja2 + CSS + JS
+Database: SQLite
 
-## Setup
+## Setup Guide
 
-Create a Python virtual environment:
+Create a Python virtual environment in the project's directory (ensure python 3.14.x is installed first):
 
-    python -m venv .venv
+    python3 -m venv .venv
 
-Activate it:
+### Activate it:
 
 Windows:
 
@@ -35,39 +29,18 @@ Install dependencies:
 
     pip install -r requirements.txt
 
-The included `complaints.db` already contains sample data.
+The included `complaints.db` is a database population script that gives you some sample data.
 
-To recreate the database from scratch:
+To recreate the database from scratch with the sample data (ensure the SQLite CLI is installed):
 
-    sqlite3 complaints.db < schema.sql
-    sqlite3 complaints.db < sample_data.sql
+    sqlite3 complaints.db
+    .read schema.sql
+    .read sample_data.sql
 
-Then run:
+To boot up the server, run:
 
-    python server.py
+    python3 server.py
 
-Open:
+Open a local development server (or listen on port 5000 with your device's IP) to see the application:
 
     http://127.0.0.1:5000/
-
-## Project structure
-
-    server.py
-    schema.sql
-    sample_data.sql
-    complaints.db
-    requirements.txt
-    README.md
-    templates/
-    static/
-        css/
-        js/
-
-## Future Gemini integration
-
-The fields `category`, `urgency`, `regulatory_risk`, and `assigned_queue`
-are already present so AI classification can be added later without
-redesigning the basic complaint model.
-
-Gemini integration should be performed by the Flask server rather than
-directly by browser JavaScript, keeping the API key off the client.
