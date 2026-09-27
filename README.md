@@ -32,9 +32,9 @@ Install dependencies:
 
     pip install -r requirements.txt
 
-The included `complaints.db` is a database population script that gives you some sample data.
+The included `sample_data.sql` is a database population script that gives you some sample data.
 
-To recreate the database from scratch with the sample data (ensure the SQLite CLI is installed):
+To recreate the database from scratch with the sample data (ensure the SQLite CLI is installed), run the following:
 
     sqlite3 complaints.db
     .read schema.sql
